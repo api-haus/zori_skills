@@ -59,6 +59,14 @@ Two reference documents sit under `reference/` because the skills cite them dire
 `e2e-gates.md` (gate-authoring criteria — what makes a test capable of failing) and `NONDUAL.md`
 (the reasoning discipline the orchestrator's judgment calls lean on).
 
+## Notes for the author
+
+This repo is where these skills actually live — edit `plugins/<name>/skills/…` directly. Installed
+from a local directory (`claude plugin marketplace add ~/_dev/zori_skills`) the plugin loads from
+this working tree, so edits apply next session with no update step. Push when consumers should get
+them. `tools/validate.sh` checks every payload still stands alone; `docs/plugin-build.md` explains
+what it checks and why.
+
 ## Notes for consumers
 
 - Plugin skills are namespaced. `/delegate:delegate`, not `/delegate`.
