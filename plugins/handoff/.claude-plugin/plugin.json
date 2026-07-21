@@ -1,0 +1,10 @@
+{
+  "name": "handoff",
+  "displayName": "Handoff — a continuation-link, not a brief",
+  "description": "Write a handoff prompt for a future session: minimal context plus a copy-pasteable kickoff line, with diagnosis and prescribed next steps forbidden.",
+  "version": "1.0.0",
+  "author": { "name": "Kassinity" },
+  "repository": "https://github.com/api-haus/zori_skills",
+  "license": "MIT",
+  "keywords": ["handoff", "context", "continuation"]
+}

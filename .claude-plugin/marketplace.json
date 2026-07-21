@@ -13,6 +13,11 @@
       "name": "delegate",
       "source": "./plugins/delegate",
       "description": "Multi-agent orchestration: an orchestrator that only scopes, briefs and synthesizes, with every other action dispatched to context-pure sub-agents. Ships the warden structural pass, the diagnose-first circuit-breaker and the shipshape style canon it depends on."
+    },
+    {
+      "name": "handoff",
+      "source": "./plugins/handoff",
+      "description": "Write a handoff prompt for a future session: minimal context plus a copy-pasteable kickoff line. Diagnosis, ranked hypotheses and prescribed next steps are forbidden — an agent that could not finish the task has not diagnosed it."
     }
   ]
 }

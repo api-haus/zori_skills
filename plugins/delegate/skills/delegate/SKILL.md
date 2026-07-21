@@ -121,7 +121,7 @@ The user reports the symptom didn't move → next dispatch is a **read-only diag
 
 **Before dispatching fix N+1:** write in chat what success would look like. When the user's report contradicts it, the hypothesis is falsified.
 
-**3+ failed fixes on the same symptom → stop.** Offer `/diagnose-first` (scientific method), `/refactor`(reduce surface for clarity) or `/handoff`.
+**3+ failed fixes on the same symptom → stop.** Offer the diagnose-first skill (scientific method), a refactor pass (reduce surface for clarity), or a handoff.
 
 ---
 
