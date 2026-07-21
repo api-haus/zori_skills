@@ -32,7 +32,14 @@ keeps the duplicates from drifting, because all of them regenerate from one sour
 
 - no path pointing at `~/.claude/skills/` or the workflow repo survived the rewrite,
 - every `${CLAUDE_PLUGIN_ROOT}/…` citation resolves to a file actually in the payload,
-- every manifest-declared skill has a `SKILL.md` and every declared agent a file.
+- every manifest-declared skill has a `SKILL.md` and every declared agent a file,
+- `claude plugin validate` passes on each plugin and on the marketplace.
+
+That last arm is the official validator and it earns its place: it caught broken YAML frontmatter
+in `delegate`, `cdiff` and `research-extractor` that the hand-rolled arms are blind to. An unquoted
+YAML scalar ends at its first `: `, so a description reading `Two hard laws: (1) …` fails to parse
+and the skill loads with every frontmatter field silently dropped — including the `description`
+that model-invocation triggers on. Prefer the official checks over writing more of our own.
 
 **Demonstrated sensitivity** (2026-07-21) — the gate was validated by breaking the payload on
 purpose, not by reasoning about it:
@@ -42,7 +49,8 @@ purpose, not by reasoning about it:
 | clean rebuild | `OK`, exit 0 |
 | drop `reference docs/e2e-gates.md` from the manifest, leave the two citations in place | `FAIL`, exit 1, both offending lines named |
 | add a citation to `${CLAUDE_PLUGIN_ROOT}/reference/does-not-exist.md` | `FAIL`, exit 1 |
-| revert both | `OK`, exit 0 |
+| unquote the `description:` scalar in a carried `SKILL.md` | `FAIL`, exit 1, via `claude plugin validate` |
+| revert each | `OK`, exit 0 |
 
 Deleting a payload file is *not* a valid sabotage — the rebuild restores it before the check runs.
 The failure has to be introduced upstream of the copy, in the manifest or the source.

@@ -102,9 +102,22 @@ for plugin in "${plugins[@]}"; do
         [[ -f "$dst/agents/$a.md" ]] || { echo "   FAIL missing agents/$a.md" >&2; fail=1; }
     done
 
+    if ! out=$(claude plugin validate "$dst" 2>&1); then
+        echo "   FAIL claude plugin validate:" >&2
+        grep -E '❯|✘' <<<"$out" | sed 's/^/     /' >&2
+        fail=1
+    fi
+
     printf '   %d skills, %d agents, %d reference docs, %s\n' \
         "${#skills[@]}" "${#agents[@]}" "${#refs[@]}" "$(du -sh "$dst" | cut -f1)"
 done
+
+if ! out=$(claude plugin validate "$MKT_ROOT" 2>&1); then
+    echo "── marketplace" >&2
+    echo "   FAIL claude plugin validate:" >&2
+    grep -E '❯|✘' <<<"$out" | sed 's/^/     /' >&2
+    fail=1
+fi
 
 if [[ $fail -ne 0 ]]; then
     echo >&2
