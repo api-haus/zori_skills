@@ -1,0 +1,23 @@
+# What this plugin carries, pulled from the canonical workflow repo by tools/sync.sh.
+# skill/agent/reference lines name sources; exclude lines drop files from the payload.
+
+skill      delegate
+skill      warden
+skill      diagnose-first
+skill      shipshape
+
+agent      delegate-architect
+agent      delegate-auditor
+agent      delegate-consolidated
+agent      delegate-reviewer
+agent      warden
+agent      shipshape-adversary
+agent      shipshape-formatter
+agent      shipshape-implementer
+agent      shipshape-surveyor
+
+reference  NONDUAL.md
+reference  docs/e2e-gates.md
+
+exclude    skills/delegate/SKILL-v1-archived.md
+exclude    skills/delegate/SKILL-v2-draft.md
