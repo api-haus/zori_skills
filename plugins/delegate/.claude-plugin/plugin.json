@@ -1,0 +1,17 @@
+{
+  "name": "delegate",
+  "displayName": "Delegate — multi-agent orchestration",
+  "description": "Multi-agent orchestration: an orchestrator that only scopes, briefs and synthesizes, with every other action dispatched to context-pure sub-agents.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Kassinity"
+  },
+  "repository": "https://github.com/api-haus/zori_skills",
+  "license": "MIT",
+  "keywords": [
+    "orchestration",
+    "subagents",
+    "code-review",
+    "refactoring"
+  ]
+}

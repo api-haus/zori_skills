@@ -1,0 +1,18 @@
+{
+  "name": "zori",
+  "description": "Zori's Claude Code skills — multi-agent orchestration and code-quality workflows.",
+  "version": "1.0.0",
+  "owner": {
+    "name": "Kassinity"
+  },
+  "metadata": {
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "delegate",
+      "source": "./plugins/delegate",
+      "description": "Multi-agent orchestration: an orchestrator that only scopes, briefs and synthesizes, with every other action dispatched to context-pure sub-agents. Ships the warden structural pass, the diagnose-first circuit-breaker and the shipshape style canon it depends on."
+    }
+  ]
+}
